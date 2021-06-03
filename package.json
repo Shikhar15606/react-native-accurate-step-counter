@@ -1,0 +1,26 @@
+{
+  "name": "react-native-accurate-step-counter",
+  "version": "0.0.2",
+  "description": "A react native library to accurately get the number of steps (pedometer)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "pedometer",
+    "react-native-steps",
+    "react-native-step-counter",
+    "react-native-walk-counter",
+    "react-native-accurate-step-counter"
+  ],
+  "author": "Shikhar Shukla",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shikhar15606/react-native-accurate-step-counter"
+  },
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  }
+}
