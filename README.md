@@ -3,12 +3,20 @@
 
 ## Getting started
 
-`$ npm install react-native-accurate-step-counter`
+### Installation
+```bash 
+$ npm install react-native-accurate-step-counter
+```
+**or**
 
-### Automatic Installation
+```bash
+$ yarn add react-native-accurate-step-counter
+```
+### Linking
 
-`$ react-native link react-native-accurate-step-counter`
-
+```bash 
+$ react-native link react-native-accurate-step-counter
+```
 
 ## Usage
 ```javascript
@@ -27,7 +35,6 @@ StepCounter.startCounter()
 StepCounter.stopCounter()
 
 // to remove the event listener
-StepCounter.removeListener('onStepRunning')	
-
+WalkEvent.removeListener('onStepRunning')	
 ```
   
