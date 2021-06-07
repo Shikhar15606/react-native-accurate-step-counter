@@ -7,8 +7,8 @@ public class StepDetector {
     private static final int VEL_RING_SIZE = 10;
 
     // change this threshold according to your sensitivity preferences
-    private static final float STEP_THRESHOLD = 10f;
-    private static final int STEP_DELAY_NS = 80000000;
+    private final float STEP_THRESHOLD;
+    private final int STEP_DELAY_NS;
 
     private int accelRingCounter = 0;
     private float[] accelRingX = new float[ACCEL_RING_SIZE];
@@ -61,5 +61,15 @@ public class StepDetector {
             lastStepTimeNs = timeNs;
         }
         oldVelocityEstimate = velocityEstimate;
+    }
+
+    StepDetector(float THRESHOLD, int DELAY_NS){
+        this.STEP_THRESHOLD = THRESHOLD;
+        this.STEP_DELAY_NS = DELAY_NS;
+    }
+
+    StepDetector(){
+        this.STEP_THRESHOLD = 10f;
+        this.STEP_DELAY_NS = 80000000;
     }
 }
