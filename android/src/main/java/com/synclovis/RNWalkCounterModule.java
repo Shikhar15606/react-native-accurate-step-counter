@@ -34,17 +34,35 @@ public class RNWalkCounterModule extends ReactContextBaseJavaModule implements S
   }
 
   @ReactMethod
-  public void startCounter(){
+  public void startCounter(float THRESHOLD, int DELAY_NS){
     Toast.makeText(getReactApplicationContext(),"Step Started",Toast.LENGTH_LONG).show();
     numSteps = 0;
-    initStepCounter();
+    initStepCounter(THRESHOLD, DELAY_NS);
     runStepCounter();
     this.reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
             .emit("onStepStart",null);
 
   }
 
-  public void initStepCounter(){
+  @ReactMethod
+  public void defaultStartCounter(){
+    Toast.makeText(getReactApplicationContext(),"Step Started",Toast.LENGTH_LONG).show();
+    numSteps = 0;
+    defaultInitStepCounter();
+    runStepCounter();
+    this.reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+            .emit("onStepStart",null);
+
+  }
+
+  public void initStepCounter(float THRESHOLD, int DELAY_NS){
+    sensorManager = (SensorManager) reactContext.getSystemService(SENSOR_SERVICE);
+    accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+    simpleStepDetector = new StepDetector(THRESHOLD, DELAY_NS);
+    simpleStepDetector.registerListener(this);
+  }
+
+  public void defaultInitStepCounter(){
     sensorManager = (SensorManager) reactContext.getSystemService(SENSOR_SERVICE);
     accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     simpleStepDetector = new StepDetector();

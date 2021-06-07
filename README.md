@@ -28,8 +28,11 @@ WalkEvent.addListener('onStepRunning', (event) => {
       console.log(event.steps)      
 })
 
-// to start the counter
-StepCounter.startCounter()
+// to start the counter with default step threshold(i.e 10.0) and delay(i.e 80000000). 
+StepCounter.defaultStartCounter()
+
+// to start the counter with custon step threshold and delay. 
+StepCount.startCounter(default_threshold, default_delay)
 
 // to stop the counter 
 StepCounter.stopCounter()
