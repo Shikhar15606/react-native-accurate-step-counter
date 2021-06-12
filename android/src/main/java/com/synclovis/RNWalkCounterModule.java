@@ -35,7 +35,6 @@ public class RNWalkCounterModule extends ReactContextBaseJavaModule implements S
 
   @ReactMethod
   public void startCounter(float THRESHOLD, int DELAY_NS){
-    Toast.makeText(getReactApplicationContext(),"Step Started",Toast.LENGTH_LONG).show();
     numSteps = 0;
     initStepCounter(THRESHOLD, DELAY_NS);
     runStepCounter();
@@ -46,7 +45,6 @@ public class RNWalkCounterModule extends ReactContextBaseJavaModule implements S
 
   @ReactMethod
   public void defaultStartCounter(){
-    Toast.makeText(getReactApplicationContext(),"Step Started",Toast.LENGTH_LONG).show();
     numSteps = 0;
     defaultInitStepCounter();
     runStepCounter();
