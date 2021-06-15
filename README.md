@@ -20,24 +20,47 @@ $ react-native link react-native-accurate-step-counter
 
 ## Usage
 ```javascript
-import StepCounter from 'react-native-accurate-step-counter';
-const WalkEvent = new NativeEventEmitter({StepCounter})
+import React, { useEffect, useState } from 'react';
+import { startCounter, stopCounter } from 'react-native-accurate-step-counter';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
-// to add event listener
-WalkEvent.addListener('onStepRunning', (event) => {      
-      console.log(event.steps)      
-})
+const App = () => {
+  const [steps, setSteps] = useState(0);
 
-// to start the counter with default step threshold(i.e 10.0) and delay(i.e 80000000). 
-StepCounter.defaultStartCounter()
+  useEffect(() => {
+    const config = {
+      default_threshold: 15.0,
+      default_delay: 150000000,
+      cheatInterval: 3000,
+      onStepCountChange: (stepCount) => { setSteps(stepCount) },
+      onCheat: () => { console.log("User is Cheating") }
+    }
+    startCounter(config);
+    return () => { stopCounter() }
+  }, []);
 
-// to start the counter with custon step threshold and delay. 
-StepCount.startCounter(default_threshold, default_delay)
+  return (
+    <SafeAreaView>
+      <View style={styles.screen}>
+        <Text style={styles.step}>{steps}</Text>
+      </View>
+    </SafeAreaView>
+  );
+};
 
-// to stop the counter 
-StepCounter.stopCounter()
+const styles = StyleSheet.create({
+  screen: {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  step: {
+    fontSize: 36
+  }
+});
 
-// to remove the event listener
-WalkEvent.removeListener('onStepRunning')	
+export default App;
 ```
   
