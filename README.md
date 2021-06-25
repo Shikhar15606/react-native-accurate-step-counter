@@ -5,18 +5,18 @@
 
 ### Installation
 ```bash 
-$ npm install react-native-accurate-step-counter
+$ npm install react-native-accurate-step-counter react-native-shake
 ```
 **or**
 
 ```bash
-$ yarn add react-native-accurate-step-counter
+$ yarn add react-native-accurate-step-counter react-native-shake
 ```
-### Linking
+<!-- ### Linking
 
 ```bash 
 $ react-native link react-native-accurate-step-counter
-```
+``` -->
 
 ## Usage
 ```javascript
