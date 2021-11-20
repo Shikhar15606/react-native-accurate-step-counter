@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   RNWalkCounter
                    DESC
-  s.homepage     = ""
+  s.homepage     = "https://github.com/Shikhar15606/react-native-accurate-step-counter"
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "author@domain.cn" }
