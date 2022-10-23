@@ -21,34 +21,37 @@ function startCounter(config) {
     const default_threshold = config.default_threshold || 15.0;
     const default_delay = config.default_delay || 150000000;
     const cheatInterval = config.cheatInterval || 3000;
-    const onStepCountChange = config.onStepCountChange;
     const onCheat = config.onCheat;
-    let prevSteps = 0, currSteps = 0, currTime = 0;
+    const onStepCountChange = config.onStepCountChange;
+    let prevSteps = 0, currSteps = 0, currTime = 0 , currentCheat=0;
     
-    subscription = WalkEvent.addListener('onStepRunning', (event) => {
-        if (currTime + cheatInterval < new Date().getTime()) {
-            currSteps = Number(event.steps);
-            if (onStepCountChange) {
-                onStepCountChange(currSteps + prevSteps);
-            }
-        }
-    });
-
-    subscription2 = RNShake.addListener(() => {
-        if (currTime + cheatInterval < new Date().getTime()) {
+    subscription = RNShake.addListener(() => {
+       if (currTime + cheatInterval < new Date().getTime()) {
             RNWalkCounter.stopCounter();
-            prevSteps = prevSteps + currSteps;
-            currSteps = 0;
             currTime = new Date().getTime();
+            prevSteps = currentCheat ;
+            currSteps = 0;
             if (onCheat) {
                 onCheat();
             }
-            setTimeout(() => {
+            setTimeout(() => {     
+            
                 RNWalkCounter.startCounter(default_threshold, default_delay);
             }, cheatInterval)
         }
     });
 
+    subscription2 = WalkEvent.addListener('onStepRunning', (event) => {
+        if (currTime + cheatInterval < new Date().getTime()) {
+            currSteps = Number(event.steps);
+            if (onStepCountChange) {
+                currentCheat= currSteps + prevSteps
+                onStepCountChange(currSteps + prevSteps);
+            }
+        }
+    });
+
+ 
     RNWalkCounter.startCounter(default_threshold, default_delay)
 }
 
