@@ -1,6 +1,6 @@
 {
   "name": "react-native-accurate-step-counter-module",
-  "version": "2.0.5",
+  "version": "2.0.7",
   "description": "A react native library to accurately get the number of steps (pedometer)",
   "main": "index.js",
   "publishConfig": {

@@ -1,5 +1,5 @@
 
-# react-native-accurate-step-counter
+# react-native-accurate-step-counter-module
 
 ## Getting started
 
@@ -21,7 +21,7 @@ $ react-native link react-native-accurate-step-counter
 ## Usage
 ```javascript
 import React, { useEffect, useState } from 'react';
-import { startCounter, stopCounter } from 'react-native-accurate-step-counter';
+import { startCounter, stopCounter } from 'react-native-accurate-step-counter-module';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 const App = () => {
@@ -64,3 +64,6 @@ const styles = StyleSheet.create({
 export default App;
 ```
   
+## License
+
+MIT © [Amira dgham](https://github.com/amiradgham)
