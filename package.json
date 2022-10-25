@@ -1,6 +1,6 @@
 {
-  "name": "react-native-accurate-step-counter",
-  "version": "2.0.3",
+  "name": "react-native-accurate-step-counter-module",
+  "version": "2.0.7",
   "description": "A react native library to accurately get the number of steps (pedometer)",
   "main": "index.js",
   "publishConfig": {
@@ -17,14 +17,18 @@
     "react-native-walk-counter",
     "react-native-accurate-step-counter"
   ],
-  "author": "Shikhar Shukla",
+  "author": "Amira Dgham",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Shikhar15606/react-native-accurate-step-counter"
+    "url": "git+https://github.com/amiradgham/react-native-accurate-step-counter.git"
   },
-  "homepage": "https://shikhar15606.github.io/react-native-accurate-step-counter/",
+  "homepage": "https://github.com/amiradgham/react-native-accurate-step-counter",
   "dependencies": {
     "react-native-shake": "^4.0.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/amiradgham/react-native-accurate-step-counter/issues"
+  },
+  "devDependencies": {}
 }
